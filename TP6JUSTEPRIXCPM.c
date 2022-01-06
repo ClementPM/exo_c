@@ -8,7 +8,8 @@ int main()
 
   //declaration de nos variables
   int nombre_mystere = 0, nombre_utilisateur = 0, tentative = 0;
-  const int VALEUR_MIN = 1, VALEUR_MAX = 100, TENTATIVE_MAX = 10;
+  const int VALEUR_MIN = 1, VALEUR_MAX = 100, TENTATIVE_MAX = 2;
+  char answer = 'x';
 
   //generation d'un nombre aleatoire
   srand(time(NULL));
@@ -36,11 +37,30 @@ int main()
     {
       printf(" BRAVO! Les deux nombres sont identiques : %d = %d\n", nombre_utilisateur, nombre_mystere);
     } 
-    //Condition des 10 tentatives
+    //Condition des 10 tentatives + fin de partie
     if(tentative == TENTATIVE_MAX)
     {
       printf("\t***YOU LOOSE TRY AGAIN***");
+      
+      printf("\t Voulez-vous faire une nouvelle partie? O/N : ");
+      scanf("\t %c", &answer);
+
+      switch(answer)
+      {
+      case 'O':
+        tentative=0;
+        continue;
       break;
+      // ERREUR DE SORTIE DE BOUCLE
+      case 'N':
+        break;
+      break;
+      default:
+        printf("Selectionnez O ou N \n");
+        printf("\t Voulez-vous faire une nouvelle partie? O/N");
+        scanf("\t %c", &answer);
+      break;
+      }
     }
   }
   while (nombre_utilisateur != nombre_mystere);
