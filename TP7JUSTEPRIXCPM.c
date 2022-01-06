@@ -59,6 +59,8 @@ int main()
         printf("Selectionnez O ou N \n");
         printf("\t Voulez-vous faire une nouvelle partie? O/N");
         scanf("\t %c", &answer);
+        tentative=0;
+        continue;
       break;
       }
     }
